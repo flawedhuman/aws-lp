@@ -127,6 +127,7 @@
 
         body {
             background-color: #FFF;
+            color: #231f20;
             font-family: "Gotham", serif;
         }
 
@@ -264,6 +265,17 @@
             color: #563d82;
         }
 
+        h2 {
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.9rem;
+            line-height: 1.1;
+        }
+
+        h3 {
+            margin-bottom: 1.25rem;
+        }
+
         p {
             margin-bottom: 3rem;
             font-size: 1.1rem;
@@ -292,6 +304,112 @@
             border-radius: 5px;
         }
 
+        /* AT A GLANCE */
+
+        .at-a-glance {
+            padding-block: 2.75rem;
+            background-color: #563d82;
+        }
+
+        .at-a-glance h2 {
+            color: #FFF;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 1fr;
+            gap: 1rem;
+            align-content: center;
+        }
+
+        .stat-grid div {
+            padding: 1.25rem;
+            background-color: #c2a01f;
+            border-radius: 5px;
+        }
+        
+        .stat-grid p {
+            margin: 0;
+            padding: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+
+        .stat-grid span {
+            display: block;
+            font-weight: 300;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* HOW DOES IT WORK */
+
+        section:has(.how-does-it-work) {
+            margin-block: 65px;
+        }
+
+        .how-does-it-work {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 5rem;
+        }
+
+        .how-does-it-work h2 {
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: #563d82;
+            max-width: 350px;
+        }
+
+        .how-does-it-work h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.1;
+            color: #231f20;
+            max-width: 350px;
+        }
+
+        .how-does-it-work p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* WHAT TO EXPECT */
+
+        section:has(.what-to-expect) {
+            margin-top: 65px;
+            background-color: #fefcf8;
+        }
+
+        .what-to-expect {
+            padding: 65px;
+        }
+
+        .slider-grid {
+            grid-template-columns: repeat(5, 500px);
+            grid-template-rows: 1fr;
+        }
+
+        .dot-nav {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            list-style-type: none;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            background-color: #949598;
+            border-radius: 50%;
+        }
+
         /* BUTTONS */
 
         .btn {
@@ -304,10 +422,42 @@
             text-transform: uppercase;
         }
 
+        .arrow-link {
+            margin-bottom: 3rem;
+            padding: 0 30px 0 0;
+            background-color: transparent;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #563d82;
+            position: relative;
+            display: inline-block;
+        }
+
+        .arrow-link::after {
+            content: '';
+            background-image: url(/images/right-arrow.svg);
+            position: absolute;
+            top: 0;
+            translate: 10px 2px;
+            width: 65px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
         /* UTILITIES */
 
         .text-center {
             text-align: center;
+        }
+
+        .bg-purple {
+            background-color: #563d82;
+        }
+
+        .text-lowercase {
+            text-transform: lowercase;
         }
 
     </style>
@@ -351,9 +501,82 @@
             <div class="hero-person"></div>
         </div>
     </section>
+    <section class="bg-purple">
+        <div class="at-a-glance container">
+            <h2 class="text-center">At a glance</h2>
+            <div class="stat-grid">
+                <div>
+                    <p class="text-center">
+                        9
+                        <span>Total Courses</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center">
+                        4
+                        <span>Certifications</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center">
+                        Online
+                        <span>Format</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center">
+                        1/3/25
+                        <span>Apply by</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center">
+                        1/6/25
+                        <span>Start Date</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section>
-        <div class="at-a-glance">
-
+        <div class="how-does-it-work container">
+            <div>
+                <h2 class="text-lowercase">How Does it Work?</h2>
+                <p>
+                   You'll complete nine digital training courses supported by live and on-demand instructor-led sessions, delve into over 150 interactive labs, deliver two capstone project, and prep for the two AWS certifications to build your skills you need to land a cloud developer role. You'll also create assets that can be put into a portfolio to show your technical knowledge and skills to potential employers.
+                </p>
+            </div>
+            <div>
+                <h3>Full-time course description</h3>
+                <p>
+                    The Cloud Application Developer track consists of nine courses to help you build your skills to launch your career as a cloud developer in less than one year - regardless of your technical background.
+                </p>
+                <a href="#" class="arrow-link">Download PDF</a>
+                <h3>Part-time course description</h3>
+                <p>
+                    The part-time Cloud Application Developer track consists of 1 - 2 courses per quarter to help you build your skills to launch your career as a cloud developer at your own pace.
+                </p>
+                <a href="#" class="arrow-link">Download PDF</a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="what-to-expect">
+            <div class="slider-grid">
+                <div class="card">
+                    
+                </div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <ul class="dot-nav">
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+            </ul>
         </div>
     </section>
 </body>
