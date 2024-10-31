@@ -360,7 +360,7 @@
         .how-does-it-work h2 {
             margin-bottom: 1.5rem;
             font-weight: 900;
-            font-size: 3rem;
+            font-size: 3.5rem;
             line-height: 1.1;
             color: #563d82;
             max-width: 350px;
@@ -387,16 +387,44 @@
         }
 
         .what-to-expect {
-            padding: 65px;
+            padding: 65px 0;
         }
 
         .slider-grid {
+            display: grid;
             grid-template-columns: repeat(5, 500px);
             grid-template-rows: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .grid-card {
+            display: flex;
+            padding: 3.5rem;
+            width: 500px;
+            height: 400px;
+            align-items: center;
+            background-color: #FFF;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-card h2 {
+            margin-bottom: 3.5rem;
+            font-weight: 900;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: #563d82;
+            text-transform: lowercase;
+            text-wrap: pretty;
+        }
+
+        .grid-card h2 span {
+            color: #c2a01f;
         }
 
         .dot-nav {
-            margin: 0;
+            margin-top: 2.5rem;
+            margin-bottom: 0;
             padding: 0;
             display: flex;
             gap: 1rem;
@@ -410,6 +438,10 @@
             border-radius: 50%;
         }
 
+        .dot:where(.active) {
+            background-color: #563d82;
+        }
+
         /* BUTTONS */
 
         .btn {
@@ -420,6 +452,11 @@
             text-decoration: none;
             font-weight: 500;
             text-transform: uppercase;
+            transition: background-color 250ms ease-in-out;
+        }
+
+        .btn:where(:hover, :focus, :active) {
+            background-color: #c2a01f;
         }
 
         .arrow-link {
@@ -561,18 +598,51 @@
         </div>
     </section>
     <section>
-        <div class="what-to-expect">
+        <div class="what-to-expect container">
             <div class="slider-grid">
-                <div class="card">
-                    
+                <div class="grid-card">
+                    <div class="card-content">
+                        <h2><span>What to</span> expect</h2>
+                        <a href="#" class="btn">
+                            Get Started Today
+                        </a>
+                    </div>
                 </div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+                <div class="grid-card">
+                    <div class="card-content">
+                        <h2><span>What to</span> expect</h2>
+                        <a href="#" class="btn">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-content">
+                        <h2><span>What to</span> expect</h2>
+                        <a href="#" class="btn">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-content">
+                        <h2><span>What to</span> expect</h2>
+                        <a href="#" class="btn">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-content">
+                        <h2><span>What to</span> expect</h2>
+                        <a href="#" class="btn">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
             </div>
             <ul class="dot-nav">
-                <li class="dot"></li>
+                <li class="dot active"></li>
                 <li class="dot"></li>
                 <li class="dot"></li>
                 <li class="dot"></li>
