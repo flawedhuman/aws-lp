@@ -1,811 +1,1086 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Cloud Institute</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AWS Cloud Institute</title>
+        <style>
 
-        @font-face {
-			font-family: "Gotham";
-			src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamLight.woff") format("woff");
-			font-weight: 300;
-			font-style: normal;
-			font-display: swap;
-		}
+            @font-face {
+                font-family: "Gotham";
+                src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamLight.woff") format("woff");
+                font-weight: 300;
+                font-style: normal;
+                font-display: swap;
+            }
 
-		@font-face {
-			font-family: "Gotham";
-			src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBook.woff") format("woff");
-			font-weight: 400;
-			font-style: normal;
-			font-display: swap;
-		}
+            @font-face {
+                font-family: "Gotham";
+                src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBook.woff") format("woff");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
 
-		@font-face {
-			font-family: "Gotham";
-			src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamMedium.woff") format("woff");
-			font-weight: 500;
-			font-style: normal;
-			font-display: swap;
-		}
+            @font-face {
+                font-family: "Gotham";
+                src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamMedium.woff") format("woff");
+                font-weight: 500;
+                font-style: normal;
+                font-display: swap;
+            }
 
-		@font-face {
-			font-family: "Gotham";
-			src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBold.woff") format("woff");
-			font-weight: 700;
-			font-style: normal;
-			font-display: swap;
-		}
+            @font-face {
+                font-family: "Gotham";
+                src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBold.woff") format("woff");
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+            }
 
-		@font-face {
-			font-family: "Gotham";
-			/* src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBook.woff") format("woff"); */
-			/* src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBlack.woff") format("woff"); */
-			src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBlack.woff2") format("woff2");
-			font-weight: 900;
-			font-style: normal;
-			font-display: swap;
-		}
+            @font-face {
+                font-family: "Gotham";
+                /* src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBook.woff") format("woff"); */
+                /* src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBlack.woff") format("woff"); */
+                src: url("https://partners.bellevue.edu/wp-content/themes/bellevue-theme/assets/fonts/GothamBlack.woff2") format("woff2");
+                font-weight: 900;
+                font-style: normal;
+                font-display: swap;
+            }
 
-        /* Andy Bell CSS Reset */
+            /* Andy Bell CSS Reset */
 
-        /* Box sizing rules */
-        *,
-        *::before,
-        *::after {
-        box-sizing: border-box;
-        }
+            /* Box sizing rules */
+            *,
+            *::before,
+            *::after {
+            box-sizing: border-box;
+            }
 
-        /* Prevent font size inflation */
-        html {
-        -moz-text-size-adjust: none;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-        }
+            /* Prevent font size inflation */
+            html {
+            -moz-text-size-adjust: none;
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+            }
 
-        /* Remove default margin in favour of better control in authored CSS */
-        body, h1, h2, h3, h4, p,
-        figure, blockquote, dl, dd {
-        margin: 0;
-        }
-
-        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-        ul[role='list'],
-        ol[role='list'] {
-        list-style: none;
-        }
-
-        /* Set core body defaults */
-        body {
-        min-height: 100vh;
-        line-height: 1.5;
-        }
-
-        /* Set shorter line heights on headings and interactive elements */
-        h1, h2, h3, h4,
-        button, input, label {
-        line-height: 1.1;
-        }
-
-        /* Balance text wrapping on headings */
-        h1, h2,
-        h3, h4 {
-        text-wrap: balance;
-        }
-
-        /* A elements that don't have a class get default styles */
-        a:not([class]) {
-        text-decoration-skip-ink: auto;
-        color: currentColor;
-        }
-
-        /* Make images easier to work with */
-        img,
-        picture {
-        max-width: 100%;
-        display: block;
-        }
-
-        /* Inherit fonts for inputs and buttons */
-        input, button,
-        textarea, select {
-        font: inherit;
-        }
-
-        /* Make sure textareas without a rows attribute are not tiny */
-        textarea:not([rows]) {
-        min-height: 10em;
-        }
-
-        /* Anything that has been anchored to should have extra scroll margin */
-        :target {
-        scroll-margin-block: 5ex;
-        }
-
-        /* AWS PAGE STYLES */
-
-        body {
-            background-color: #FFF;
-            color: #231f20;
-            font-family: "Gotham", serif;
-        }
-
-        /* LAYOUT GRIDS AND WRAPPERS */
-        
-        .container {
-            max-width: 1196px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-inline: 1.5rem;
-        }
-
-        .container-full-width {
-            width: 100%;
-        }
-
-        section {
-            margin-top: 130px;
-        }
-
-        /* BUTTONS */
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            background-color: #563d82;
-            color: #FFF;
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            transition: background-color 250ms ease-in-out;
-        }
-
-        .btn:where(:hover, :focus, :active) {
-            background-color: #c2a01f;
-        }
-
-        .arrow-link {
-            margin-bottom: 3rem;
-            padding: 0 30px 0 0;
-            background-color: transparent;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #563d82;
-            position: relative;
-            display: inline-block;
-        }
-
-        .arrow-link::after {
-            content: '';
-            background-image: url(/images/right-arrow.svg);
-            position: absolute;
-            top: 0;
-            translate: 10px 2px;
-            width: 65px;
-            height: 18px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        /* UTILITIES */
-
-        .text-center {
-            text-align: center;
-        }
-
-        .bg-purple {
-            background-color: #563d82;
-        }
-
-        .text-lowercase {
-            text-transform: lowercase;
-        }
-
-        .text-white {
-            color: #FFF;
-        }
-
-        /* HEADER */
-
-        .notification-bar {
-            padding-block: 1rem;
-            background-color: #5d888a;
-        }
-
-        .notification-bar p {
-            margin-bottom: 0;
-            color: #FFF;
-            font-weight: 500;
-        }
-
-        .header-wrap {
-            margin-inline: auto;
-            padding-top: 1rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 2.5rem;
-            position: relative;
-        }
-
-        .header-wrap::after {
-            content: '';
-            position: absolute;
-            top: 96px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 80px;
-            background-color: #634b8b;
-            z-index: -1;
-            background-image: url(/images/lines.png);
-            background-position: center;
-            background-size: cover;
-        }
-
-        .bu-logo {
-            padding-top: 10px;
-            width: 250px;
-        }
-
-        .aws-branding {
-            display: grid;
-            grid-template-columns: 250px 250px 1fr;
-            grid-template-rows: 40px 40px 40px;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 500;
-            position: relative;
-        }
-
-        .aws-branding::after {
-            content: '';
-            display: grid;
-            position: absolute;
-            left: 100%;
-            grid-template-columns: 1fr;
-            grid-template-rows: 40px 40px 40px;
-            grid-row: 2 / 3;
-            width: 2000px;
-            height: 40px;
-            background-color: #c2a01f;
-        }
-
-        .aws-branding-logo {
-            padding: 0.5rem;
-            background-color: #FFF;
-            grid-column: 2 / 3;
-            grid-row: 1 / -1;
-            align-content: center;
-            justify-items: center;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, .1607843137);
-        }
-
-        .aws-branding-logo img {
-            max-width: 135px;
-        }
-
-        .aws-learning-programs-text {
-            margin-bottom: 0;
-            padding-left: 1rem;
-            grid-column: 1 / -1;
-            grid-row: 2 / 3;
-            background-color: #c2a01f;
-            height: 100%;
-            align-content: center;
-            border-top-left-radius: 7px;
-            text-align: left;
-            color: #FFF;
-        }
-
-        .aws-learning-programs-text p {
-            margin-bottom: 0;
-            font-size: 0.8rem;
-            color: #FFF;
-        }
-
-        /* HERO */
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 5rem;
-        }
-
-        h1 {
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            font-size: 4.75rem;
-            line-height: 1.1;
-            color: #563d82;
-        }
-
-        h2 {
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            font-size: 1.9rem;
-            line-height: 1.1;
-        }
-
-        h3 {
-            margin-bottom: 1.25rem;
-        }
-
-        p {
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #231f20;
-        }
-
-        .hero-person {
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-            background-image: url(/images/hero-person.webp);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-person::after {
-            content: '';
-            margin: 5px;
-            border: 1px #c2a01f solid;
-            width: calc(100% - 10px);
-            height: calc(100% - 10px);
-            max-width: 520px;
-            display: block;
-            border-radius: 5px;
-        }
-
-        /* AT A GLANCE */
-
-        .at-a-glance {
-            padding-block: 2.75rem;
-            background-color: #563d82;
-        }
-
-        .at-a-glance h2 {
-            color: #FFF;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: 1fr;
-            gap: 1rem;
-            align-content: center;
-        }
-
-        .stat-grid div {
-            padding: 1.25rem;
-            background-color: #c2a01f;
-            border-radius: 5px;
-        }
-        
-        .stat-grid p {
+            /* Remove default margin in favour of better control in authored CSS */
+            body, h1, h2, h3, h4, p,
+            figure, blockquote, dl, dd {
             margin: 0;
-            padding: 0;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #FFF;
-        }
+            }
 
-        .stat-grid span {
+            /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+            ul[role='list'],
+            ol[role='list'] {
+            list-style: none;
+            }
+
+            /* Set core body defaults */
+            body {
+            min-height: 100vh;
+            line-height: 1.5;
+            }
+
+            /* Set shorter line heights on headings and interactive elements */
+            h1, h2, h3, h4,
+            button, input, label {
+            line-height: 1.1;
+            }
+
+            /* Balance text wrapping on headings */
+            h1, h2,
+            h3, h4 {
+            text-wrap: balance;
+            }
+
+            /* A elements that don't have a class get default styles */
+            a:not([class]) {
+                text-decoration-skip-ink: auto;
+                color: #563d82;
+            }
+
+            a:where(:hover, :focus, :active) {
+                text-decoration: none;
+                color: #563d82;
+            }
+
+            /* Make images easier to work with */
+            img,
+            picture {
+            max-width: 100%;
             display: block;
-            font-weight: 300;
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
+            }
 
-        /* HOW DOES IT WORK */
+            /* Inherit fonts for inputs and buttons */
+            input, button,
+            textarea, select {
+            font: inherit;
+            }
 
-        section:has(.how-does-it-work) {
-            margin-block: 65px;
-        }
+            /* Make sure textareas without a rows attribute are not tiny */
+            textarea:not([rows]) {
+            min-height: 10em;
+            }
 
-        .how-does-it-work {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 5rem;
-        }
+            /* Anything that has been anchored to should have extra scroll margin */
+            :target {
+            scroll-margin-block: 5ex;
+            }
 
-        .how-does-it-work h2 {
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            color: #563d82;
-            max-width: 350px;
-        }
+            /* AWS PAGE STYLES */
 
-        .how-does-it-work h3 {
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            font-size: 1.25rem;
-            line-height: 1.1;
-            color: #231f20;
-            max-width: 350px;
-        }
+            body {
+                background-color: #FFF;
+                color: #231f20;
+                font-family: "Gotham", serif;
+            }
 
-        .how-does-it-work p {
-            margin-bottom: 1.5rem;
-        }
+            hr {
+                border: 0;
+                border-top: 1px solid #c2a01f;
+                width: 100%;
+                margin: 1.5rem 0;
+                display: block;
+            }
 
-        /* WHAT TO EXPECT */
+            /* LAYOUT GRIDS AND WRAPPERS */
+            
+            .container {
+                max-width: 1196px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-inline: 1.5rem;
+            }
 
-        section:has(.what-to-expect) {
-            margin-top: 65px;
-            background-color: #fefcf8;
-        }
+            .container-full-width {
+                width: 100%;
+            }
 
-        .what-to-expect {
-            padding: 65px 0;
-        }
+            section {
+                margin-top: 130px;
+            }
 
-        .slider-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 500px);
-            grid-template-rows: 1fr;
-            gap: 1.5rem;
-            align-items: center;
-        }
+            /* BUTTONS */
 
-        .grid-card {
-            display: flex;
-            padding: 3.5rem;
-            width: 500px;
-            height: 400px;
-            align-items: center;
-            background-color: #FFF;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            border-radius: 5px 5px 0 0;
-        }
+            .aws-btn {
+                padding: 1rem 2rem;
+                border: none;
+                background-color: #563d82;
+                color: #FFF;
+                text-decoration: none;
+                text-align: center;
+                font-weight: 500;
+                text-transform: uppercase;
+                transition: background-color 250ms ease-in-out;
+            }
 
-        .grid-card::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -1.5rem;
-            width: 100%;
-            height: 1.5rem;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-            background-color: #563d82;
-        }
+            .aws-btn:where(:hover, :focus, :active) {
+                background-color: #c2a01f;
+            }
 
-        .grid-card.no-psuedo {
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
+            .arrow-link {
+                margin-bottom: 3rem;
+                padding: 0 30px 0 0;
+                background-color: transparent;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: #563d82;
+                position: relative;
+                display: inline-block;
+            }
 
-        .grid-card.no-psuedo::after {
-            display: none;
-        }
+            .arrow-link::after {
+                content: '';
+                background-image: url(/images/right-arrow.svg);
+                position: absolute;
+                top: 0;
+                translate: 10px 2px;
+                width: 65px;
+                height: 18px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
 
-        .grid-card h2 {
-            margin-bottom: 3.5rem;
-            font-weight: 900;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            color: #563d82;
-            text-transform: lowercase;
-            text-wrap: pretty;
-        }
+            /* UTILITIES */
 
-        .grid-card h2 span {
-            color: #c2a01f;
-        }
+            .text-center {
+                text-align: center;
+            }
 
-        .card-content {
-            margin-bottom: 1rem;;
-            display: grid;
-            gap: 0.5rem;
-            width: 100%;
-        }
+            .bg-purple {
+                background-color: #563d82;
+            }
 
-        .card-content .btn {
-            display: inline-block;
-            max-width: 250px;
-        }
+            .text-lowercase {
+                text-transform: lowercase;
+            }
 
-        .card-content h3 {
-            font-weight: 900;
-            font-size: 1.5rem;
-            line-height: 1.1;
-            color: #563d82;
-            text-wrap: pretty;
-        }
+            .text-white {
+                color: #FFF;
+            }
 
-        .card-content ol {
-            margin: 0;
-            padding-left: 1rem;
-            font-size: 1.1rem;
-        }
+            .text-gold {
+                color: #c2a01f;
+            }
 
-        .card-content ol li {
-            padding-bottom: 1rem;
-        }
+            .no-bullets {
+                margin: 0 0 1.5rem 0;
+                padding: 0;
+                list-style-type: none;
+            }
 
-        .card-content hr {
-            border: 0;
-            border-top: 1px solid #c2a01f;
-            width: 100%;
-            margin: 1.5rem 0;
-            display: block;
-        }
+            .no-bullets li {
+                padding-bottom: 0.25rem;
+            }
 
-        .card-content p {
-            margin: 0;
-            padding: 0;
-        }
+            /* HEADER */
 
-        .dot-nav {
-            margin-top: 2.5rem;
-            margin-bottom: 0;
-            padding: 0;
-            display: flex;
-            gap: 1rem;
-            list-style-type: none;
-        }
+            .notification-bar {
+                padding-block: 1rem;
+                background-color: #5d888a;
+            }
 
-        .dot {
-            width: 20px;
-            height: 20px;
-            background-color: #949598;
-            border-radius: 50%;
-        }
+            .notification-bar p {
+                margin-bottom: 0;
+                color: #FFF;
+                font-weight: 500;
+            }
 
-        .dot:where(.active) {
-            background-color: #563d82;
-        }
+            .header-wrap {
+                margin-inline: auto;
+                padding-top: 1rem;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 2.5rem;
+                position: relative;
+            }
 
-        /* WHY AWS */
+            .header-wrap::after {
+                content: '';
+                position: absolute;
+                top: 96px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100vw;
+                height: 80px;
+                background-color: #634b8b;
+                z-index: -1;
+                background-image: url(/images/lines.png);
+                background-position: center;
+                background-size: cover;
+            }
 
-        section:has(.why-aws) {
-            margin-top: 0;
-            padding-block: 95px;
-            background-color: #563d82;
-        }
+            .bu-logo {
+                padding-top: 10px;
+                width: 250px;
+            }
 
-        .why-aws h2 {
-            margin-bottom: 3.5rem;
-            font-weight: 500;
-            font-size: 3rem;
-            line-height: 1.1;
-            color: #c2a01f;
-        }
+            .aws-branding {
+                display: grid;
+                grid-template-columns: 250px 250px 1fr;
+                grid-template-rows: 40px 40px 40px;
+                text-align: center;
+                font-size: 0.8rem;
+                font-weight: 500;
+                position: relative;
+            }
 
-        .why-aws h3 {
-            font-size: 2rem;
-            font-weight: 500;
-            color: #c2a01f;
-        }
+            .aws-branding::after {
+                content: '';
+                display: grid;
+                position: absolute;
+                left: 100%;
+                grid-template-columns: 1fr;
+                grid-template-rows: 40px 40px 40px;
+                grid-row: 2 / 3;
+                width: 2000px;
+                height: 40px;
+                background-color: #c2a01f;
+            }
 
-        .why-aws .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 5rem;
-        }
+            .aws-branding-logo {
+                padding: 0.5rem;
+                background-color: #FFF;
+                grid-column: 2 / 3;
+                grid-row: 1 / -1;
+                align-content: center;
+                justify-items: center;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, .1607843137);
+            }
 
-        .why-aws .content-grid p {
-            margin-bottom: 3rem;
-        }
+            .aws-branding-logo img {
+                max-width: 135px;
+            }
 
-    </style>
-</head>
-<body>
-    <header class="container-full-width">
-        <div class="container-full-width notification-bar">
-            <p class="text-center">
-                Classes start January 6, 2025. <a href="#">Enroll Today</a>
-            </p>
-        </div>
-        <div class="container header-wrap">
-            <div>
-                <a href="/lp/aws">
-                    <img class="bu-logo" src="/images/logo-bellevue-color.svg" alt="Bellevue University Logo">
-                </a>
+            .aws-learning-programs-text {
+                margin-bottom: 0;
+                padding-left: 1rem;
+                grid-column: 1 / -1;
+                grid-row: 2 / 3;
+                background-color: #c2a01f;
+                height: 100%;
+                align-content: center;
+                border-top-left-radius: 7px;
+                text-align: left;
+                color: #FFF;
+            }
+
+            .aws-learning-programs-text p {
+                margin-bottom: 0;
+                font-size: 0.8rem;
+                color: #FFF;
+            }
+
+            /* HERO */
+
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+            }
+
+            h1 {
+                margin-bottom: 1.5rem;
+                font-weight: 900;
+                font-size: 4.75rem;
+                line-height: 1.1;
+                color: #563d82;
+            }
+
+            h2 {
+                margin-bottom: 1.5rem;
+                font-weight: 500;
+                font-size: 1.9rem;
+                line-height: 1.1;
+            }
+
+            h3 {
+                margin-bottom: 1.25rem;
+            }
+
+            p {
+                margin-bottom: 3rem;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                color: #231f20;
+            }
+
+            a {
+                color: #563d82;
+            }
+
+            .hero-person {
+                border-radius: 5px;
+                position: relative;
+                overflow: hidden;
+                background-image: url(/images/hero-person.webp);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hero-person::after {
+                content: '';
+                margin: 5px;
+                border: 1px #c2a01f solid;
+                width: calc(100% - 10px);
+                height: calc(100% - 10px);
+                max-width: 520px;
+                display: block;
+                border-radius: 5px;
+            }
+
+            /* AT A GLANCE */
+
+            .at-a-glance {
+                padding-block: 2.75rem;
+                background-color: #563d82;
+            }
+
+            .at-a-glance h2 {
+                color: #FFF;
+            }
+
+            .stat-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: 1fr;
+                gap: 1rem;
+                align-content: center;
+            }
+
+            .stat-grid div {
+                padding: 1.25rem;
+                background-color: #c2a01f;
+                border-radius: 5px;
+            }
+            
+            .stat-grid p {
+                margin: 0;
+                padding: 0;
+                font-size: 3rem;
+                font-weight: 700;
+                color: #FFF;
+            }
+
+            .stat-grid span {
+                display: block;
+                font-weight: 300;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+
+            /* HOW DOES IT WORK */
+
+            section:has(.how-does-it-work) {
+                margin-block: 65px;
+            }
+
+            .how-does-it-work {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+            }
+
+            .how-does-it-work h2 {
+                margin-bottom: 1.5rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                max-width: 350px;
+            }
+
+            .how-does-it-work h3 {
+                margin-bottom: 1.5rem;
+                font-weight: 700;
+                font-size: 1.25rem;
+                line-height: 1.1;
+                color: #231f20;
+                max-width: 350px;
+            }
+
+            .how-does-it-work p {
+                margin-bottom: 1.5rem;
+            }
+
+            /* WHAT TO EXPECT */
+
+            section:has(.what-to-expect) {
+                margin-top: 65px;
+                background-color: #fefcf8;
+            }
+
+            .what-to-expect {
+                padding: 65px 0;
+            }
+
+            .slider-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 500px);
+                grid-template-rows: 1fr;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .grid-card {
+                display: flex;
+                padding: 3.5rem;
+                width: 500px;
+                height: 400px;
+                align-items: center;
+                background-color: #FFF;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+                position: relative;
+                border-radius: 5px 5px 0 0;
+            }
+
+            .grid-card::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -1.5rem;
+                width: 100%;
+                height: 1.5rem;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background-color: #563d82;
+            }
+
+            .grid-card.no-psuedo {
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            .grid-card.no-psuedo::after {
+                display: none;
+            }
+
+            .grid-card h2 {
+                margin-bottom: 3.5rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                text-transform: lowercase;
+                text-wrap: pretty;
+            }
+
+            .grid-card h2 span {
+                color: #c2a01f;
+            }
+
+            .card-content {
+                margin-bottom: 1rem;;
+                display: grid;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .card-content .aws-btn {
+                display: inline-block;
+                max-width: 250px;
+            }
+
+            .card-content h3 {
+                font-weight: 900;
+                font-size: 1.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                text-wrap: pretty;
+            }
+
+            .card-content ol {
+                margin: 0;
+                padding-left: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .card-content ol li {
+                padding-bottom: 1rem;
+            }
+
+            .card-content p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .dot-nav {
+                margin-top: 2.5rem;
+                margin-bottom: 0;
+                padding: 0;
+                display: flex;
+                gap: 1rem;
+                list-style-type: none;
+            }
+
+            .dot {
+                width: 20px;
+                height: 20px;
+                background-color: #949598;
+                border-radius: 50%;
+            }
+
+            .dot:where(.active) {
+                background-color: #563d82;
+            }
+
+            /* WHY AWS */
+
+            section:has(.why-aws) {
+                margin-top: 0;
+                padding-block: 95px;
+                background-color: #563d82;
+            }
+
+            .why-aws h2 {
+                margin-bottom: 3.5rem;
+                font-weight: 500;
+                font-size: 3rem;
+                line-height: 1.1;
+                color: #c2a01f;
+            }
+
+            .why-aws h3 {
+                font-size: 2rem;
+                font-weight: 500;
+                color: #c2a01f;
+            }
+
+            .why-aws .content-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+            }
+
+            .why-aws .content-grid p {
+                margin-bottom: 3rem;
+            }
+
+            /* YOU HAVE QUESTIONS */
+
+            .you-have-questions {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 0 5rem;
+            }
+
+            .you-have-questions h2 {
+                margin-bottom: 1.5rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                max-width: 350px;
+            }
+
+            .you-have-questions h3 {
+                line-height: 1.4;
+            }
+
+            .you-have-questions .content-footer {
+                grid-column: 2 / -1;
+            }
+
+            .you-have-questions .content-footer p {
+                margin: 0;
+            }
+
+            /* HOW MUCH */
+
+            section:has(.how-much) {
+                padding-block: 95px;
+                background-color: #f4f4f4;
+            }
+
+            .eyebrow {
+                margin-bottom: 1.5rem;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+            }
+
+            .how-much h2 {
+                margin-bottom: 1.5rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+            }
+
+            .heading-and-button {
+                margin-bottom: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+            }
+
+            .course-pace-grid {
+                margin-bottom: 3rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 1.25rem;
+            }
+
+            .course-pace-card {
+                padding: 2rem 2rem 2rem 2.5rem;
+                background-color: #FFF;
+                border-radius: 5px;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+                border-left: 12px solid #563d82;
+            }
+
+            .course-pace-card h3 {
+                margin-bottom: 1.5rem;
+                font-weight: 600;
+                font-size: 2rem;
+                line-height: 1.1;
+                color: #563d82;
+            }
+
+            .pace-cost {
+                margin-bottom: 0;
+                font-weight: 700;
+            }
+
+            .course-pace-disclaimer-lrg {
+                margin-bottom: 1.75rem;
+            }
+
+            .course-pace-disclaimer-sml {
+                margin-bottom: 0;
+                font-size: 0.9rem;
+            }
+
+            .course-pace-disclaimer-lrg, .course-pace-disclaimer-sml {
+                max-width: 760px;
+            }
+
+            /* ADVANTAGE OF BU */
+
+            section:has(.advantage-of-bu) {
+                margin-top: 0;
+                padding-block: 65px;
+            }
+
+            .advantage-of-bu {
+                display: grid;
+                grid-template-columns: 1.25fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+                align-items: center;
+            }
+
+            .advantage-of-bu h2 {
+                margin-bottom: 2rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                text-wrap: pretty;
+            }
+
+            .advantage-of-bu p {
+                margin-bottom: 0;
+            }
+
+            .co-branded-logo-card {
+                padding: 3rem 3rem 0 3rem;
+                border-radius: 5px;
+                background-color: #FFF;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+            }
+
+            .co-branded-logo-card img {
+                margin-inline: auto;
+                margin-bottom: 3rem;
+                max-width: 300px;
+            }
+
+            .co-branded-logo-card img:last-child {
+                margin-bottom: 20px;
+                max-width: 250px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="container-full-width">
+            <div class="container-full-width notification-bar">
+                <p class="text-center">
+                    Classes start January 6, 2025. <a class="text-white" href="#">Enroll Today</a>
+                </p>
             </div>
-            <div class="aws-branding">
-                <div class="aws-learning-programs-text">
+            <div class="container header-wrap">
+                <div>
+                    <a href="/lp/aws">
+                        <img class="bu-logo" src="/images/logo-bellevue-color.svg" alt="Bellevue University Logo">
+                    </a>
+                </div>
+                <div class="aws-branding">
+                    <div class="aws-learning-programs-text">
+                        <p>
+                            Advance your development career
+                        </p>
+                    </div>
+                    <div class="aws-branding-logo">
+                        <img src="/images/aws-cloud-institute-logo.png" alt="AWS Cloud Institute">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="hero container">
+                <div>
+                    <h1>AWS Cloud Institute</h1>
                     <p>
-                        Advance your development career
+                        Learn the skills to become a cloud developer in as little as nine months&mdash;and there's no prior technical background required to get started. Take the next step to fast track your career in tech and become a certified AWS Cloud Practitioner and earn your associate certifications as an AWS Developer.
                     </p>
+                    <a href="#" class="aws-btn">
+                        Get Started Today
+                    </a>
                 </div>
-                <div class="aws-branding-logo">
-                    <img src="/images/aws-cloud-institute-logo.png" alt="AWS Cloud Institute">
-                </div>
+                <div class="hero-person"></div>
             </div>
-        </div>
-    </header>
-    <section>
-        <div class="hero container">
-            <div>
-                <h1>AWS Cloud Institute</h1>
-                <p>
-                    Learn the skills to become a cloud developer in as little as nine months&mdash;and there's no prior technical background required to get started. Take the next step to fast track your career in tech and become a certified AWS Cloud Practitioner and earn your associate certifications as an AWS Developer.
-                </p>
-                <a href="#" class="btn">
-                    Get Started Today
-                </a>
-            </div>
-            <div class="hero-person"></div>
-        </div>
-    </section>
-    <section class="bg-purple">
-        <div class="at-a-glance container">
-            <h2 class="text-center">At a glance</h2>
-            <div class="stat-grid">
-                <div>
-                    <p class="text-center">
-                        9
-                        <span>Total Courses</span>
-                    </p>
-                </div>
-                <div>
-                    <p class="text-center">
-                        4
-                        <span>Certifications</span>
-                    </p>
-                </div>
-                <div>
-                    <p class="text-center">
-                        Online
-                        <span>Format</span>
-                    </p>
-                </div>
-                <div>
-                    <p class="text-center">
-                        1/3/25
-                        <span>Apply by</span>
-                    </p>
-                </div>
-                <div>
-                    <p class="text-center">
-                        1/6/25
-                        <span>Start Date</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="how-does-it-work container">
-            <div>
-                <h2 class="text-lowercase">How Does it Work?</h2>
-                <p>
-                   You'll complete nine digital training courses supported by live and on-demand instructor-led sessions, delve into over 150 interactive labs, deliver two capstone project, and prep for the two AWS certifications to build your skills you need to land a cloud developer role. You'll also create assets that can be put into a portfolio to show your technical knowledge and skills to potential employers.
-                </p>
-            </div>
-            <div>
-                <h3>Full-time course description</h3>
-                <p>
-                    The Cloud Application Developer track consists of nine courses to help you build your skills to launch your career as a cloud developer in less than one year - regardless of your technical background.
-                </p>
-                <a href="#" class="arrow-link">Download PDF</a>
-                <h3>Part-time course description</h3>
-                <p>
-                    The part-time Cloud Application Developer track consists of 1 - 2 courses per quarter to help you build your skills to launch your career as a cloud developer at your own pace.
-                </p>
-                <a href="#" class="arrow-link">Download PDF</a>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="what-to-expect container">
-            <div class="slider-grid">
-                <div class="grid-card no-psuedo">
-                    <div class="card-content">
-                        <h2><span>What to</span> expect</h2>
-                        <a href="#" class="btn">
-                            Get Started Today
-                        </a>
-                    </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-content">
-                        <h3>Quarter 1</h3>
-                        <ol>
-                            <li>Introduction to Cloud Foundations</li>
-                            <li>Developer Fundamentals</li>
-                            <li>AWS Cloud Operations 1</li>
-                        </ol>
-                        <hr>
-                        <h4>Certification Prep</h4>
-                        <p>
-                            AWS Certified Cloud Practitioner exam prep
+        </section>
+        <section class="bg-purple">
+            <div class="at-a-glance container">
+                <h2 class="text-center">At a glance</h2>
+                <div class="stat-grid">
+                    <div>
+                        <p class="text-center">
+                            9
+                            <span>Total Courses</span>
                         </p>
                     </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-content">
-                        <h3>Quarter 2</h3>
-                        <ol>
-                            <li>AWS Cloud Fundamentals 1</li>
-                            <li>Developer Intermediate 1</li>
-                            <li>AWS Cloud Operations 2</li>
-                        </ol>
-                        <hr>
-                        <h4>Capstone</h4>
-                        <p>
-                            Cloud Capstone 1
+                    <div>
+                        <p class="text-center">
+                            4
+                            <span>Certifications</span>
                         </p>
                     </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-content">
-                        <h3>Quarter 3</h3>
-                        <ol>
-                            <li>AWS Cloud Fundamentals 2</li>
-                            <li>Developer Intermediate 2</li>
-                            <li>AWS Cloud Operations 3</li>
-                        </ol>
-                        <hr>
-                        <h4>Capstone</h4>
-                        <p>
-                            Cloud Capstone 2
+                    <div>
+                        <p class="text-center">
+                            Online
+                            <span>Format</span>
                         </p>
                     </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-content">
-                        <h3>Quarter 4</h3>
-                        <ol>
-                            <li>AWS Cloud Fundamentals 3</li>
-                            <li>Developer Intermediate 3</li>
-                            <li>AWS Cloud Operations 4</li>
-                        </ol>
-                        <hr>
-                        <h4>Capstone</h4>
-                        <p>
-                            Cloud Capstone 3
+                    <div>
+                        <p class="text-center">
+                            1/3/25
+                            <span>Apply by</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-center">
+                            1/6/25
+                            <span>Start Date</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <ul class="dot-nav">
-                <li class="dot active"></li>
-                <li class="dot"></li>
-                <li class="dot"></li>
-                <li class="dot"></li>
-            </ul>
-        </div>
-    </section>
-    <section>
-        <div class="why-aws container">
-            <h2><span class="text-lowercase">W</span>hy <span class="text-white">AWS Cloud Institute?</span></h2>
-            <div class="content-grid">
+        </section>
+        <section>
+            <div class="how-does-it-work container">
                 <div>
-                    <h3 class="text-gold">Fast track your future</h3>
-                    <p class="text-white">
-                        The program can help you go from non-technical to a hands-on cloud developer in as little as 9 months. You'll get the right traning, hands-on experience, and professional-skill development to become a Cloud Application Developer.
-                    </p>
-                    <h3 class="text-gold">Learn from the pros</h3>
-                    <p class="text-white">
-                        Built by AWS and delivered by AWS-accedited instructors, you'll learn from experts with extensive cloud and instruction experience. You'll learn to develop on the AWS cloud straight from the source.
+                    <h2 class="text-lowercase">How Does it Work?</h2>
+                    <p>
+                    You'll complete nine digital training courses supported by live and on-demand instructor-led sessions, delve into over 150 interactive labs, deliver two capstone project, and prep for the two AWS certifications to build your skills you need to land a cloud developer role. You'll also create assets that can be put into a portfolio to show your technical knowledge and skills to potential employers.
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-gold">Remove the guesswork</h3>
-                    <p class="text-white">
-                        The structured program built by the pros and validated by companues to ensure the right skills are taught for the role you want.
+                    <h3>Full-time course description</h3>
+                    <p>
+                        The Cloud Application Developer track consists of nine courses to help you build your skills to launch your career as a cloud developer in less than one year - regardless of your technical background.
                     </p>
-                    <h3 class="text-gold">Launch your cloud career</h3>
-                    <p class="text-white">
-                        You'll learn by doing with 150+ labs, capstone projects, career services, and more. Then, validate your skills with exam prep and vouchers for AWS Cloud Practitioner and AWS Developer - Associate Certifications.
+                    <a href="#" class="arrow-link">Download PDF</a>
+                    <h3>Part-time course description</h3>
+                    <p>
+                        The part-time Cloud Application Developer track consists of 1 - 2 courses per quarter to help you build your skills to launch your career as a cloud developer at your own pace.
+                    </p>
+                    <a href="#" class="arrow-link">Download PDF</a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="what-to-expect container">
+                <div class="slider-grid">
+                    <div class="grid-card no-psuedo">
+                        <div class="card-content">
+                            <h2><span>What to</span> expect</h2>
+                            <a href="#" class="aws-btn">
+                                Get Started Today
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="card-content">
+                            <h3>Quarter 1</h3>
+                            <ol>
+                                <li>Introduction to Cloud Foundations</li>
+                                <li>Developer Fundamentals</li>
+                                <li>AWS Cloud Operations 1</li>
+                            </ol>
+                            <hr>
+                            <h4>Certification Prep</h4>
+                            <p>
+                                AWS Certified Cloud Practitioner exam prep
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="card-content">
+                            <h3>Quarter 2</h3>
+                            <ol>
+                                <li>AWS Cloud Fundamentals 1</li>
+                                <li>Developer Intermediate 1</li>
+                                <li>AWS Cloud Operations 2</li>
+                            </ol>
+                            <hr>
+                            <h4>Capstone</h4>
+                            <p>
+                                Cloud Capstone 1
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="card-content">
+                            <h3>Quarter 3</h3>
+                            <ol>
+                                <li>AWS Cloud Fundamentals 2</li>
+                                <li>Developer Intermediate 2</li>
+                                <li>AWS Cloud Operations 3</li>
+                            </ol>
+                            <hr>
+                            <h4>Capstone</h4>
+                            <p>
+                                Cloud Capstone 2
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="card-content">
+                            <h3>Quarter 4</h3>
+                            <ol>
+                                <li>AWS Cloud Fundamentals 3</li>
+                                <li>Developer Intermediate 3</li>
+                                <li>AWS Cloud Operations 4</li>
+                            </ol>
+                            <hr>
+                            <h4>Capstone</h4>
+                            <p>
+                                Cloud Capstone 3
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="dot-nav">
+                    <li class="dot active"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div class="why-aws container">
+                <h2><span class="text-lowercase">W</span>hy <span class="text-white">AWS Cloud Institute?</span></h2>
+                <div class="content-grid">
+                    <div>
+                        <h3 class="text-gold">Fast track your future</h3>
+                        <p class="text-white">
+                            The program can help you go from non-technical to a hands-on cloud developer in as little as 9 months. You'll get the right traning, hands-on experience, and professional-skill development to become a Cloud Application Developer.
+                        </p>
+                        <h3 class="text-gold">Learn from the pros</h3>
+                        <p class="text-white">
+                            Built by AWS and delivered by AWS-accedited instructors, you'll learn from experts with extensive cloud and instruction experience. You'll learn to develop on the AWS cloud straight from the source.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-gold">Remove the guesswork</h3>
+                        <p class="text-white">
+                            The structured program built by the pros and validated by companues to ensure the right skills are taught for the role you want.
+                        </p>
+                        <h3 class="text-gold">Launch your cloud career</h3>
+                        <p class="text-white">
+                            You'll learn by doing with 150+ labs, capstone projects, career services, and more. Then, validate your skills with exam prep and vouchers for AWS Cloud Practitioner and AWS Developer - Associate Certifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="you-have-questions container">
+                <div>
+                    <h2>You have questions, <span class="text-gold">we have answers.</span></h2>
+                </div>
+                <div>
+                    <h3 class="text-lowercase">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+                    <p>
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                    </p>
+                    <h3 class="text-lowercase">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+                    <p>
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lowercase">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+                    <p>
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                    </p>
+                    <h3 class="text-lowercase">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+                    <p>
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                        Nisi magni fuga tenetur nemo minima consequuntur aperiam illo sint odit impedit. Excepturi eius cupiditate asperiores rem. Minus minima illo nemo sapiente.
+                    </p>
+                </div>
+                <div class="content-footer">
+                    <hr>
+                    <p>
+                        For more frequently asked questions, <a href="#">click here</a>.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
-</body>
+        </section>
+        <section>
+            <div class="how-much container">
+                <h4 class="eyebrow text-gold">Pick your pace and pay monthly</h4>
+                <div class="heading-and-button">
+                    <h2 class="text-lowercase">How much does it cost?</h2>
+                    <a href="#" class="aws-btn">Get started today</a>
+                </div>
+                <div class="course-pace-grid">
+                    <div class="course-pace-card">
+                        <h3>3 course <span class="text-gold">pace</span></h3>
+                        <ul class="no-bullets">
+                            <li>Full-time</li>
+                            <li>30 - 40 hours/week</li>
+                            <li>Finish in 9 months*</li>
+                        </ul>
+                        <p class="pace-cost">
+                            $630/month - Plus tax
+                        </p>
+                    </div>
+                    <div class="course-pace-card">
+                        <h3>2 course <span class="text-gold">pace</span></h3>
+                        <ul class="no-bullets">
+                            <li>Part-time</li>
+                            <li>20 - 30 hours/week</li>
+                            <li>Finish in 15 months*</li>
+                        </ul>
+                        <p class="pace-cost">
+                            $420/month - Plus tax
+                        </p>
+                    </div>
+                    <div class="course-pace-card">
+                        <h3>1 course <span class="text-gold">pace</span></h3>
+                        <ul class="no-bullets">
+                            <li>Part-time</li>
+                            <li>10 - 12 hours/week</li>
+                            <li>Finish in 27 months*</li>
+                        </ul>
+                        <p class="pace-cost">
+                            $210/month - Plus tax
+                        </p>
+                    </div>
+                </div>
+                <p class="course-pace-disclaimer-lrg">
+                    AWS Cloud Institute is committed to offering accessible and affordable cloud education. We are offering a select number of need-based grants to learners with financial constraints who are looking to join, or have already joined, AWS Cloud Institute. <a href="#">Learn more</a>
+                </p>
+                <p class="course-pace-disclaimer-sml">
+                    *The above program completion dates are projected based on continuing the same course load for the duration of the program. See Terms and Conditions for more information.
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="advantage-of-bu container">
+                <div>
+                    <h2><span class="text-lowercase text-gold">The advantage</span> of Bellevue and AWS partering!</h2>
+                    <p>
+                        We've teamed up with AWS Cloud Institute to equip students with in-demand cloud computing skills. Together, we're focused on helping both learners and employers access the industry-relevant training and certifications needed to excel in today's cloud-driven world.
+                    </p>
+                </div>
+                <div>
+                    <div class="co-branded-logo-card">
+                        <img src="/images/logo-bellevue-color.svg" alt="Bellevue University Logo">
+                        <hr>
+                        <img src="/images/aws-cloud-institute-logo.png" alt="AWS Cloud Institute Logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
