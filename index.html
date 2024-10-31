@@ -149,6 +149,65 @@
             margin-top: 130px;
         }
 
+        /* BUTTONS */
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #563d82;
+            color: #FFF;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: background-color 250ms ease-in-out;
+        }
+
+        .btn:where(:hover, :focus, :active) {
+            background-color: #c2a01f;
+        }
+
+        .arrow-link {
+            margin-bottom: 3rem;
+            padding: 0 30px 0 0;
+            background-color: transparent;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #563d82;
+            position: relative;
+            display: inline-block;
+        }
+
+        .arrow-link::after {
+            content: '';
+            background-image: url(/images/right-arrow.svg);
+            position: absolute;
+            top: 0;
+            translate: 10px 2px;
+            width: 65px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* UTILITIES */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-purple {
+            background-color: #563d82;
+        }
+
+        .text-lowercase {
+            text-transform: lowercase;
+        }
+
+        .text-white {
+            color: #FFF;
+        }
+
         /* HEADER */
 
         .notification-bar {
@@ -406,6 +465,29 @@
             align-items: center;
             background-color: #FFF;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .grid-card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1.5rem;
+            width: 100%;
+            height: 1.5rem;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: #563d82;
+        }
+
+        .grid-card.no-psuedo {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .grid-card.no-psuedo::after {
+            display: none;
         }
 
         .grid-card h2 {
@@ -423,6 +505,7 @@
         }
 
         .card-content {
+            margin-bottom: 1rem;;
             display: grid;
             gap: 0.5rem;
             width: 100%;
@@ -454,9 +537,9 @@
         .card-content hr {
             border: 0;
             border-top: 1px solid #c2a01f;
-            width: 100%;         /* ensure full width */
-            margin: 1.5rem 0;      /* add some spacing */
-            display: block;      /* ensure it's displayed as block */
+            width: 100%;
+            margin: 1.5rem 0;
+            display: block;
         }
 
         .card-content p {
@@ -484,59 +567,37 @@
             background-color: #563d82;
         }
 
-        /* BUTTONS */
+        /* WHY AWS */
 
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
+        section:has(.why-aws) {
+            margin-top: 0;
+            padding-block: 95px;
             background-color: #563d82;
-            color: #FFF;
-            text-decoration: none;
+        }
+
+        .why-aws h2 {
+            margin-bottom: 3.5rem;
             font-weight: 500;
-            text-transform: uppercase;
-            transition: background-color 250ms ease-in-out;
+            font-size: 3rem;
+            line-height: 1.1;
+            color: #c2a01f;
         }
 
-        .btn:where(:hover, :focus, :active) {
-            background-color: #c2a01f;
+        .why-aws h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #c2a01f;
         }
 
-        .arrow-link {
+        .why-aws .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 5rem;
+        }
+
+        .why-aws .content-grid p {
             margin-bottom: 3rem;
-            padding: 0 30px 0 0;
-            background-color: transparent;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #563d82;
-            position: relative;
-            display: inline-block;
-        }
-
-        .arrow-link::after {
-            content: '';
-            background-image: url(/images/right-arrow.svg);
-            position: absolute;
-            top: 0;
-            translate: 10px 2px;
-            width: 65px;
-            height: 18px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        /* UTILITIES */
-
-        .text-center {
-            text-align: center;
-        }
-
-        .bg-purple {
-            background-color: #563d82;
-        }
-
-        .text-lowercase {
-            text-transform: lowercase;
         }
 
     </style>
@@ -571,7 +632,7 @@
             <div>
                 <h1>AWS Cloud Institute</h1>
                 <p>
-                    Learn the skills to become a cloud developer in as little as nine months&mdash;and there's no prior technical background required to get started. Take the next step to fast track your career in tech and become a certified AWS Cloud Practioner and earn your associate certifications as an AWS Developer.
+                    Learn the skills to become a cloud developer in as little as nine months&mdash;and there's no prior technical background required to get started. Take the next step to fast track your career in tech and become a certified AWS Cloud Practitioner and earn your associate certifications as an AWS Developer.
                 </p>
                 <a href="#" class="btn">
                     Get Started Today
@@ -642,7 +703,7 @@
     <section>
         <div class="what-to-expect container">
             <div class="slider-grid">
-                <div class="grid-card">
+                <div class="grid-card no-psuedo">
                     <div class="card-content">
                         <h2><span>What to</span> expect</h2>
                         <a href="#" class="btn">
@@ -717,6 +778,33 @@
                 <li class="dot"></li>
                 <li class="dot"></li>
             </ul>
+        </div>
+    </section>
+    <section>
+        <div class="why-aws container">
+            <h2><span class="text-lowercase">W</span>hy <span class="text-white">AWS Cloud Institute?</span></h2>
+            <div class="content-grid">
+                <div>
+                    <h3 class="text-gold">Fast track your future</h3>
+                    <p class="text-white">
+                        The program can help you go from non-technical to a hands-on cloud developer in as little as 9 months. You'll get the right traning, hands-on experience, and professional-skill development to become a Cloud Application Developer.
+                    </p>
+                    <h3 class="text-gold">Learn from the pros</h3>
+                    <p class="text-white">
+                        Built by AWS and delivered by AWS-accedited instructors, you'll learn from experts with extensive cloud and instruction experience. You'll learn to develop on the AWS cloud straight from the source.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-gold">Remove the guesswork</h3>
+                    <p class="text-white">
+                        The structured program built by the pros and validated by companues to ensure the right skills are taught for the role you want.
+                    </p>
+                    <h3 class="text-gold">Launch your cloud career</h3>
+                    <p class="text-white">
+                        You'll learn by doing with 150+ labs, capstone projects, career services, and more. Then, validate your skills with exam prep and vouchers for AWS Cloud Practitioner and AWS Developer - Associate Certifications.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 </body>
