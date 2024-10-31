@@ -160,11 +160,12 @@
 
             section {
                 margin-top: 130px;
+                padding-inline: 1rem;
             }
 
             /* BUTTONS */
 
-            .aws-btn {
+            .aws-btn, .aws-btn-inverse {
                 padding: 1rem 2rem;
                 border: none;
                 background-color: #563d82;
@@ -178,6 +179,16 @@
 
             .aws-btn:where(:hover, :focus, :active) {
                 background-color: #c2a01f;
+            }
+
+            .aws-btn-inverse {
+                margin-top: 2rem;
+                background-color: #c2a01f;
+                display: inline-block;
+            }
+
+            .aws-btn-inverse:where(:hover, :focus, :active) {
+                background-color: #563d82;
             }
 
             .arrow-link {
@@ -208,6 +219,12 @@
 
             .text-center {
                 text-align: center;
+            }
+
+            .text-bold {
+                font-weight: 500;
+                font-size: 1.2rem;
+                font-family: "Gotham", serif;
             }
 
             .bg-purple {
@@ -771,6 +788,39 @@
                 max-width: 250px;
             }
 
+            /* JOIN COHORT */
+
+            section:has(.join-cohort) {
+                margin-top: 0;
+                padding-block: 95px;
+            }
+
+            .join-cohort {
+                display: grid;
+                grid-template-columns: 1.25fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+            }
+
+            .join-cohort h2 {
+                margin-bottom: 2.5rem;
+                font-weight: 900;
+                font-size: 3.5rem;
+                line-height: 1.1;
+                color: #563d82;
+                text-wrap: pretty;
+            }
+            
+            .join-cohort h3 {
+                font-size: 1.75rem;
+                font-weight: 500;
+                color: #563d82;
+            }
+
+            .join-cohort p {
+                margin-bottom: 2rem;
+            }
+
         </style>
     </head>
     <body>
@@ -1079,6 +1129,24 @@
                         <hr>
                         <img src="/images/aws-cloud-institute-logo.png" alt="AWS Cloud Institute Logo">
                     </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="join-cohort container">
+                <div>
+                    <h2 class="text-lowercase"><span class="text-gold">Join the</span> next cohort</h2>
+                    <h3>Classes start January 6, 2025</h3>
+                    <p class="text-bold">
+                        Apply by January 3, 2025. Your first monthly payment us not due until January 9, 2025.
+                    </p>
+                    <p>
+                        Gain the cloud skills you need to excel in today's tech-driven world. Contact us to discover how Bellevue University and AWS Cloud Institute can help you master in-demand cloud technologies and advance your career.
+                    </p>
+                    <a href="#" class="aws-btn-inverse">Get started today</a>
+                </div>
+                <div>
+
                 </div>
             </div>
         </section>
