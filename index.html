@@ -405,7 +405,7 @@
             height: 400px;
             align-items: center;
             background-color: #FFF;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
         }
 
         .grid-card h2 {
@@ -420,6 +420,48 @@
 
         .grid-card h2 span {
             color: #c2a01f;
+        }
+
+        .card-content {
+            display: grid;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .card-content .btn {
+            display: inline-block;
+            max-width: 250px;
+        }
+
+        .card-content h3 {
+            font-weight: 900;
+            font-size: 1.5rem;
+            line-height: 1.1;
+            color: #563d82;
+            text-wrap: pretty;
+        }
+
+        .card-content ol {
+            margin: 0;
+            padding-left: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .card-content ol li {
+            padding-bottom: 1rem;
+        }
+
+        .card-content hr {
+            border: 0;
+            border-top: 1px solid #c2a01f;
+            width: 100%;         /* ensure full width */
+            margin: 1.5rem 0;      /* add some spacing */
+            display: block;      /* ensure it's displayed as block */
+        }
+
+        .card-content p {
+            margin: 0;
+            padding: 0;
         }
 
         .dot-nav {
@@ -610,34 +652,62 @@
                 </div>
                 <div class="grid-card">
                     <div class="card-content">
-                        <h2><span>What to</span> expect</h2>
-                        <a href="#" class="btn">
-                            Get Started Today
-                        </a>
+                        <h3>Quarter 1</h3>
+                        <ol>
+                            <li>Introduction to Cloud Foundations</li>
+                            <li>Developer Fundamentals</li>
+                            <li>AWS Cloud Operations 1</li>
+                        </ol>
+                        <hr>
+                        <h4>Certification Prep</h4>
+                        <p>
+                            AWS Certified Cloud Practitioner exam prep
+                        </p>
                     </div>
                 </div>
                 <div class="grid-card">
                     <div class="card-content">
-                        <h2><span>What to</span> expect</h2>
-                        <a href="#" class="btn">
-                            Get Started Today
-                        </a>
+                        <h3>Quarter 2</h3>
+                        <ol>
+                            <li>AWS Cloud Fundamentals 1</li>
+                            <li>Developer Intermediate 1</li>
+                            <li>AWS Cloud Operations 2</li>
+                        </ol>
+                        <hr>
+                        <h4>Capstone</h4>
+                        <p>
+                            Cloud Capstone 1
+                        </p>
                     </div>
                 </div>
                 <div class="grid-card">
                     <div class="card-content">
-                        <h2><span>What to</span> expect</h2>
-                        <a href="#" class="btn">
-                            Get Started Today
-                        </a>
+                        <h3>Quarter 3</h3>
+                        <ol>
+                            <li>AWS Cloud Fundamentals 2</li>
+                            <li>Developer Intermediate 2</li>
+                            <li>AWS Cloud Operations 3</li>
+                        </ol>
+                        <hr>
+                        <h4>Capstone</h4>
+                        <p>
+                            Cloud Capstone 2
+                        </p>
                     </div>
                 </div>
                 <div class="grid-card">
                     <div class="card-content">
-                        <h2><span>What to</span> expect</h2>
-                        <a href="#" class="btn">
-                            Get Started Today
-                        </a>
+                        <h3>Quarter 4</h3>
+                        <ol>
+                            <li>AWS Cloud Fundamentals 3</li>
+                            <li>Developer Intermediate 3</li>
+                            <li>AWS Cloud Operations 4</li>
+                        </ol>
+                        <hr>
+                        <h4>Capstone</h4>
+                        <p>
+                            Cloud Capstone 3
+                        </p>
                     </div>
                 </div>
             </div>
