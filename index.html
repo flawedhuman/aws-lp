@@ -144,6 +144,14 @@
                 display: block;
             }
 
+            footer hr {
+                border: 0;
+                border-top: 1px solid #FFF;
+                width: 100%;
+                margin: 1.5rem 0;
+                display: block;
+            }
+
             /* LAYOUT GRIDS AND WRAPPERS */
             
             .container {
@@ -745,7 +753,7 @@
 
             section:has(.advantage-of-bu) {
                 margin-top: 0;
-                padding-block: 65px;
+                padding: 65px 0 0 0;
             }
 
             .advantage-of-bu {
@@ -792,7 +800,7 @@
 
             section:has(.join-cohort) {
                 margin-top: 0;
-                padding-block: 95px;
+                padding-block: 95px 0;
             }
 
             .join-cohort {
@@ -819,6 +827,86 @@
 
             .join-cohort p {
                 margin-bottom: 2rem;
+            }
+
+            /* GET STARTED TODAY */
+            
+            section:has(.get-started-today) {
+                margin-top: 0;
+                padding-block: 95px;
+                background-color: #edecf4;
+            }
+
+            .get-started-today {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                gap: 5rem;
+            }
+
+            .get-started-today h2 {
+                font-weight: 500;
+                font-size: 1.75rem;
+                line-height: 1.4;
+            }
+
+            .get-started-today p {
+                margin-bottom: 1.25rem;
+                font-size: 1rem;
+            }
+
+            .get-started-today .arrow-link {
+                margin-bottom: 1rem;
+            }
+
+            /* FOOTER */
+
+            footer {
+                padding-block: 2.5rem;
+                background-color: #563d82;
+                font-size: 0.9rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            footer img {
+                margin-bottom: 3rem;
+            }
+
+            footer .footer-content {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            footer .footer-links {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                display: flex;
+                gap: 1rem;
+                color: #FFF;
+            }
+
+            footer .footer-links a {
+                margin: 0;
+                padding: 0;
+                color: #FFF;
+                text-decoration: none;
+            }
+
+            footer .footer-links a {
+                color: #FFF;
+                text-decoration: none;
+            }
+
+            footer .footer-content p {
+                margin-bottom: 0;
+            }
+
+            footer .footer-links a:where(:hover, :focus, :active) {
+                text-decoration: underline;
             }
 
         </style>
@@ -1146,9 +1234,55 @@
                     <a href="#" class="aws-btn-inverse">Get started today</a>
                 </div>
                 <div>
-
+                    <img src="/images/sl-headshot.webp" alt="Dr. Stephen Linenberger">
                 </div>
             </div>
         </section>
+        <section>
+            <div class="get-started-today container">
+                <div>
+                    <h2>Get started today&mdash;it will only take 5 minutes to complete!</h2>
+                    <p>
+                        Once accepted, enroll to save your spot.
+                    </p>
+                    <p>
+                        <em>
+                            We will review your application for completeness. Once accepted, you'll receive an email with enrollment instructions. Applicants will be invited to enroll on a first come, first served basis. Applications for classes starting January 6th close January 3rd.
+                        </em>
+                    </p>
+                    <p>
+                        Having troubles with your application and need support navigating through the process, <a href="#">click here for step-by-step guide</a>.
+                    </p>
+                </div>
+                <div>
+                    <h2>Questions? Contact Us.</h2>
+                    <p>
+                        Reach out for any questions related to the program. Our AWS Customer Service team is equipped to answer questions related to your program application, program prerequisites, pricing, and more.
+                    </p>
+                    <a href="#" class="arrow-link">Get Support</a>
+                    <p>
+                        Or email us directly at: <a href="mailto:awscloudinstitute@amazon.com">awscloudinstitute@amazon.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <img class="bu-logo" src="/images/logo-bellevue-white.svg" alt="Bellevue University Logo">
+                <hr>
+                <div class="footer-content">
+                    <ul class="footer-links">
+                        <li><a href="https://www.bellevue.edu/student-support/consumer-information/consumer-information">Consumer Information</a></li>
+                        <li>//</li>
+                        <li><a href="https://www.bellevue.edu/footer/privacy/">Privacy</a></li>
+                        <li>//</li>
+                        <li><a href="https://www.bellevue.edu/about/accreditation-awards/">Accreditation</a></li>
+                        <li>//</li>
+                        <li><a href="https://www.bellevue.edu/footer/employment/">Careers at Bellevue</a></li>
+                    </ul>
+                    <p class="text-white">2024 - Bellevue University</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
